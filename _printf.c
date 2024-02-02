@@ -7,7 +7,7 @@
 int _printf(const char *format, ...)
 {
 	va_list ap;
-	char *stringstart, *stringend;
+	char *stringstart;
 	int cntr = 0;
 	const char *x, *temp;
 
@@ -22,8 +22,7 @@ int _printf(const char *format, ...)
 		switch (*x)
 		{
 			case ('c'):
-			printchar(va_arg(ap, int));
-			cntr++;
+			cntr += printchar(va_arg(ap, int));
 			break;
 			case ('%'):
 			write(1, x, 1);
@@ -33,8 +32,10 @@ int _printf(const char *format, ...)
 			stringstart = va_arg(ap, char *);
 			if (stringstart == NULL)
 				return (-1);
-			stringend = printstringspecifier(stringstart);
-			cntr += (stringend - stringstart);
+			cntr += (printstringspecifier(stringstart) - stringstart);
+			break;
+			case ('d' || 'i'):
+			cntr += printnum(va_arg(ap, int));
 			break;
 			default:
 			return (-1);
@@ -44,6 +45,5 @@ int _printf(const char *format, ...)
 		cntr += (temp - x);
 		x = temp;
 	}
-	va_end(ap);
 	return (cntr);
 }

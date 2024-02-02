@@ -4,7 +4,8 @@
  * @ch: char
  * Return: void
  */
-void printchar(int ch)
+int printchar(int ch)
 {
 	write(1, &ch, 1);
+	return (1);
 }

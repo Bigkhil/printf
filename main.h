@@ -8,5 +8,6 @@
 int _printf(const char *format, ...);
 char *printstringspecifier(char *p);
 const char *printstr(const char *str);
-void printchar(int ch);
+int printchar(int ch);
+int printnum(int num);
 #endif
