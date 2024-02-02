@@ -9,9 +9,10 @@
  */
 int main(void)
 {
-	int len;
+	int len, number;
 
-	len = _printf("%s", (char *)0);
+	number = 1054165;
+	len = _printf("%i\n", number);
 	printf("%d\n", len);
 	return (0);
 }

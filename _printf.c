@@ -9,12 +9,11 @@ int _printf(const char *format, ...)
 	va_list ap;
 	char *stringstart;
 	int cntr = 0;
-	const char *x, *temp;
+	const char *x = printstr(format), *temp;
 
 	if (format == NULL)
 		return (-1);
 	va_start(ap, format);
-	x = printstr(format);
 	cntr += (x - format);
 	while (*x != '\0')
 	{
@@ -34,7 +33,8 @@ int _printf(const char *format, ...)
 				return (-1);
 			cntr += (printstringspecifier(stringstart) - stringstart);
 			break;
-			case ('d' || 'i'):
+			case ('i'):
+			case ('d'):
 			cntr += printnum(va_arg(ap, int));
 			break;
 			default:
