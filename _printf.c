@@ -19,7 +19,7 @@ int _printf(const char *format, ...)
 	cntr = 0;
 	x = printstr(format);
 	cntr += (x - format);
-	while (*x != '\0')
+	while (*x != '\0' && x)
 	{
 		x++;
 		switch (*x)
