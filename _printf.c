@@ -11,11 +11,9 @@ int _printf(const char *format, ...)
 	int cntr;
 	const char *x, *temp;
 
-	va_start(ap, format);
 	if (format == NULL)
-	{
 		return (-1);
-	}
+	va_start(ap, format);
 	cntr = 0;
 	x = printstr(format);
 	cntr += (x - format);
@@ -38,12 +36,13 @@ int _printf(const char *format, ...)
 			cntr += (stringend - stringstart);
 			break;
 			default:
-			perror("Error");
+			return (-1);
 		}
 		x++;
 		temp = printstr(x);
 		cntr += (temp - x);
 		x = temp;
 	}
+	va_end(ap);
 	return (cntr);
 }
