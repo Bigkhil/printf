@@ -11,7 +11,7 @@ int main(void)
 {
 	int len;
 
-	len = printf("%s", (char *)0);
+	len = _printf("%s", (char *)0);
 	printf("%d\n", len);
 	return (0);
 }
