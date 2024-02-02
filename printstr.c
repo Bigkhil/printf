@@ -6,7 +6,7 @@
  */
 const char *printstr(const char *str)
 {
-	while (*str != '\0' && *str != '%')
+	while (*str != '\0' && *str != '%' && str)
 	{
 		write(1, str, 1);
 		str++;

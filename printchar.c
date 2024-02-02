@@ -6,5 +6,8 @@
  */
 void printchar(int ch)
 {
-	write(1, &ch, 1);
+	if (ch)
+	{
+		write(1, &ch, 1);
+	}
 }
