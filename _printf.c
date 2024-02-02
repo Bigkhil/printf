@@ -25,7 +25,7 @@ int _printf(const char *format, ...)
 		switch (*x)
 		{
 			case ('c'):
-			(va_arg(ap, int) != NULL) ? printchar(va_arg(ap, int)) : perror("error");
+			(va_arg(ap, int) >= 0) ? printchar(va_arg(ap, int)) : perror("error");
 			cntr++;
 			break;
 			case ('%'):
@@ -33,8 +33,9 @@ int _printf(const char *format, ...)
 			cntr++;
 			break;
 			case ('s'):
-			(va_arg(ap, char *) != NULL) ?
-			 stringstart = va_arg(ap, char *) : perror("error");
+			stringstart = va_arg(ap, char *);
+			if (stringstart == NULL)
+				return (-1);
 			stringend = printstringspecifier(stringstart);
 			cntr += (stringend - stringstart);
 			break;
@@ -44,6 +45,5 @@ int _printf(const char *format, ...)
 		cntr += (temp - x);
 		x = temp;
 	}
-	va_end(ap);
 	return (cntr);
 }
