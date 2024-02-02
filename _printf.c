@@ -1,42 +1,5 @@
 #include "main.h"
 /**
- * printstringspecifier - function to print string
- * @p: pointer to char
- * Return: pointer to char
- */
-char *printstringspecifier(char *p)
-{
-	while (*p != '\0')
-	{
-		write(1, p, 1);
-		p++;
-	}
-	return (p);
-}
-/**
- * printchar - function to print string
- * @ch: char
- * Return: void
- */
-void printchar(int ch)
-{
-	write(1, &ch, 1);
-}
-/**
- * printstr - function to print string
- * @str: string
- * Return: const * char
- */
-const char *printstr(const char *str)
-{
-	while (*str != '\0' && *str != '%')
-	{
-		write(1, str, 1);
-		str++;
-	}
-	return (str);
-}
-/**
  * _printf - function to print formatted string
  * @format: string
  * Return: int

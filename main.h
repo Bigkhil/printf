@@ -5,4 +5,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 int _printf(const char *format, ...);
+char *printstringspecifier(char *p);
+const char *printstr(const char *str);
+void printchar(int ch);
 #endif
