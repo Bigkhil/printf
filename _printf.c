@@ -37,12 +37,13 @@ int _printf(const char *format, ...)
 			stringend = printstringspecifier(stringstart);
 			cntr += (stringend - stringstart);
 			break;
+			default:
+			return (-1);
 		}
 		x++;
 		temp = printstr(x);
 		cntr += (temp - x);
 		x = temp;
 	}
-	va_end(ap);
 	return (cntr);
 }
