@@ -12,6 +12,10 @@ int _printf(const char *format, ...)
 	const char *x, *temp;
 
 	va_start(ap, format);
+	if (format == NULL)
+	{
+		return (-1);
+	}
 	cntr = 0;
 	x = printstr(format);
 	cntr += (x - format);
