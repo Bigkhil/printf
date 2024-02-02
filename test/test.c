@@ -11,9 +11,9 @@ int main(void)
 {
 	int len;
 
-	len = printf("%c %%\n",NULL);
+	len = printf("%K\n");
 	printf("%d\n", len);
-	len = printf("Should print a a single percent sign: %%\n");
+	len = _printf("%K\n");
 	printf("%d\n", len);
 	return (0);
 }

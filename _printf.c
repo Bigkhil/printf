@@ -38,7 +38,7 @@ int _printf(const char *format, ...)
 			cntr += (stringend - stringstart);
 			break;
 			default:
-			return (-1);
+			perror("Error");
 		}
 		x++;
 		temp = printstr(x);
