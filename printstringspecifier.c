@@ -6,7 +6,7 @@
  */
 char *printstringspecifier(char *p)
 {
-	while (*p != '\0' && p)
+	while (*p != '\0')
 	{
 		write(1, p, 1);
 		p++;
