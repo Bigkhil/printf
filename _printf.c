@@ -12,7 +12,7 @@ int _printf(const char *format, ...)
 	const char *x, *temp;
 
 	if (format == NULL)
-		return (-1);
+		write(2, "Error", strlen("Error"));
 	va_start(ap, format);
 	x = printstr(format);
 	cntr += (x - format);
@@ -32,12 +32,12 @@ int _printf(const char *format, ...)
 			case ('s'):
 			stringstart = va_arg(ap, char *);
 			if (stringstart == NULL)
-				return (-1);
+				write(2, "Error", strlen("Error"));
 			stringend = printstringspecifier(stringstart);
 			cntr += (stringend - stringstart);
 			break;
 			default:
-			return (-1);
+			write(2, "Error", strlen("Error"));
 		}
 		x++;
 		temp = printstr(x);
