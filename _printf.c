@@ -77,5 +77,5 @@ int _printf(const char *format, ...)
 		x = temp;
 	}
 	va_end(ap);
-	return (cntr);
+	return (cntr - 1);
 }
