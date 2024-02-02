@@ -8,13 +8,12 @@ int _printf(const char *format, ...)
 {
 	va_list ap;
 	char *stringstart, *stringend;
-	int cntr;
+	int cntr = 0;
 	const char *x, *temp;
 
 	if (format == NULL)
 		return (-1);
 	va_start(ap, format);
-	cntr = 0;
 	x = printstr(format);
 	cntr += (x - format);
 	while (*x != '\0')
@@ -32,6 +31,8 @@ int _printf(const char *format, ...)
 			break;
 			case ('s'):
 			stringstart = va_arg(ap, char *);
+			if (stringstart == NULL)
+				return (-1);
 			stringend = printstringspecifier(stringstart);
 			cntr += (stringend - stringstart);
 			break;
