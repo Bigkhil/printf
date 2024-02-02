@@ -44,5 +44,5 @@ int _printf(const char *format, ...)
 		x = temp;
 	}
 	va_end(ap);
-	return (cntr - 1);
+	return (cntr);
 }
